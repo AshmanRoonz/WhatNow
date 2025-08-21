@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Now What - Demo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #eee;
+      text-align: center;
+      padding: 2em;
+    }
+    h1 { color: #00e0ff; }
+    button {
+      margin: 0.5em;
+      padding: 0.7em 1.2em;
+      font-size: 1em;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .yes { background: #28a745; color: white; }
+    .no { background: #dc3545; color: white; }
+    .maybe { background: #ffc107; color: black; }
+    .bar-container {
+      width: 60%;
+      margin: 1em auto;
+      text-align: left;
+    }
+    .bar {
+      height: 24px;
+      margin: 4px 0;
+      border-radius: 4px;
+      line-height: 24px;
+      color: #111;
+      font-weight: bold;
+      padding-left: 6px;
+    }
+    .yes-bar { background: #28a745; }
+    .no-bar { background: #dc3545; }
+    .maybe-bar { background: #ffc107; }
+  </style>
+</head>
+<body>
+  <h1>Now What</h1>
+  <p><strong>Question:</strong> Should we make this app open source from day one?</p>
+  
+  <div>
+    <button class="yes" onclick="vote('yes')">Yes</button>
+    <button class="no" onclick="vote('no')">No</button>
+    <button class="maybe" onclick="vote('maybe')">Maybe</button>
+  </div>
+
+  <div class="bar-container">
+    <div id="yes-bar" class="bar yes-bar"></div>
+    <div id="no-bar" class="bar no-bar"></div>
+    <div id="maybe-bar" class="bar maybe-bar"></div>
+  </div>
+
+  <script>
+    const votes = { yes: 0, no: 0, maybe: 0 };
+
+    function vote(choice) {
+      votes[choice]++;
+      render();
+    }
+
+    function render() {
+      const total = votes.yes + votes.no + votes.maybe;
+      for (let key in votes) {
+        const percent = total ? (votes[key] / total) * 100 : 0;
+        const bar = document.getElementById(`${key}-bar`);
+        bar.style.width = percent + "%";
+        bar.textContent = `${key.toUpperCase()}: ${votes[key]} (${percent.toFixed(1)}%)`;
+      }
+    }
+
+    render(); // initialize
+  </script>
+</body>
+</html>
