@@ -5,7 +5,7 @@
 - **Now What (Input):** People share their voice daily through simple prompts.  
 - **Here’s What (Output):** Collective results are instantly visible in real time, from local to global scales.  
 
-The goal is to create a living feedback loop between people and society:  
+The goal is to create a living feedback loop between people and society, one that governments can't ignore:  
 **convergence (input) → emergence (output).**
 
 ---
