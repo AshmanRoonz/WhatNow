@@ -255,12 +255,6 @@ The goal is not to replace human judgment with algorithmic decision-making, but 
 
 ---
 
-## 📌 Status
-This repository is currently **private** and in the early planning/prototyping stage.  
-It will be opened to the public once the core framework and principles are stable.  
-
----
-
 ## 📖 License
 Planned: **AGPLv3** for code, **CC BY-SA 4.0** for documentation.  
 (Currently private; final license to be confirmed before public release.)
