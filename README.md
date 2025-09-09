@@ -26,7 +26,7 @@ Your feedback, criticism, and collaboration are essential to making this vision 
 
 **What this is.** The Truth-Driven Agreement-Ethic (TDAE) is a moral framework where **truth is the foundation**, **agreement shapes morality**, and **ethics evolve with knowledge**. Participatory Democracy (PD) is how we implement TDAE in governance: a **continuous, inclusive, transparent process** that turns citizen input into coherent public action.
 
-**How it works.** Every citizen has a **personal AI advocate** that helps you clarify your views in plain language, flags misinformation and shows evidence, and carries your voice into a larger **collective AI synthesis** that organizes everyone's inputs into clear issues, convergences, disagreements, and options.
+**How it works.** Every citizen has a **personal AI advocate** that helps you clarify your views in plain language, and shows evidence, and carries your voice into a larger **collective AI synthesis** that organizes everyone's inputs into clear issues, convergences, disagreements, and options.
 
 Government is reconceived as the **organizing field** of society—not a separate entity above the people, but a field that belongs to the people and helps coordinate collective action. **Centers of focus** are **many and temporary**: whatever we're focusing on together becomes a center that appears, evolves, and closes as needs change.
 
