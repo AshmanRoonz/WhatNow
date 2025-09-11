@@ -246,9 +246,45 @@ The goal is not to replace human judgment with algorithmic decision-making, but 
 
 ---
 
+# WhatNow (Now What)
+
+A participatory democracy app with a built-in Personal AI Advocate to empower every individual. Users can express views, have them synthesized collectively, and influence governance using the Truth-Driven Agreement-Ethic (TDAE) framework.
+
+## Quick Start
+
+This repo now includes a full-stack MVP with Node.js backend, MongoDB, and interactive frontend for login, contributions, and Centers of Focus.
+
+### Prerequisites
+- Node.js (v16+)
+- MongoDB (local or Atlas)
+
+### Setup
+1. Clone the repo: `git clone https://github.com/AshmanRoonz/WhatNow.git`
+2. Install dependencies: `npm install`
+3. Copy `.env.example` to `.env` and fill in values (e.g., MONGODB_URI, JWT_SECRET).
+4. Start the server: `npm start`
+5. Open http://localhost:3000 in your browser.
+
+### Features
+- User authentication (signup/login)
+- Submit contributions (text/voice mock)
+- Propose and join Centers of Focus
+- Collective synthesis view (basic)
+
+## Roadmap
+- Integrate real AI (e.g., xAI API)
+- Advanced synthesis with NLP
+- Real-time collaboration
+
+## Contributing
+Fork, branch, and submit PRs!
+
+## License
+MIT (or your choice)
+
 ## 🛠️ Roadmap (Early Stages)
 - [x] Draft charter & governance structure  
-- [ ] Minimal prototype: one input question → one output graph  
+- [x] Minimal prototype: one input question → one output graph  
 - [ ] Basic backend/API  
 - [ ] Simple mobile-friendly frontend  
 - [ ] Privacy & security audit  
