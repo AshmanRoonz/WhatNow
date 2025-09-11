@@ -2,163 +2,69 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" center="width=device-width, initial-scale=1.0">
     <title>WhatNow - Every Voice, Every Day</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f7fa;
-            color: #333;
-            line-height: 1.6;
-        }
-        header {
-            background: linear-gradient(135deg, #007bff, #0056b3);
-            color: white;
-            text-align: center;
-            padding: 2rem 1rem;
-        }
-        main {
-            max-width: 800px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-        }
-        section {
-            background: white;
-            border-radius: 8px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        h1, h2 {
-            margin-top: 0;
-        }
-        textarea, input {
-            width: 100%;
-            padding: 0.5rem;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-        button {
-            background: #007bff;
-            color: white;
-            border: none;
-            padding: 0.75rem 1.5rem;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 1rem;
-        }
-        button:hover {
-            background: #0056b3;
-        }
-        #aiOutput, #synthesisOutput {
-            background: #e9f4ff;
-            padding: 1rem;
-            border-left: 4px solid #007bff;
-            margin-top: 1rem;
-        }
-        .center-card {
-            background: #f8f9fa;
-            border: 1px solid #dee2e6;
-            border-radius: 4px;
-            padding: 1rem;
-            margin: 1rem 0;
-        }
-        .issues-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-        @media (max-width: 600px) {
-            main { padding: 0 0.5rem; }
-            section { padding: 1rem; }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
         <h1>WhatNow: Every Voice, Every Day</h1>
-        <p>A participatory democracy app with your Personal AI Advocate to ensure you're heard.</p>
+        <p>A participatory democracy app with your Personal AI Advocate.</p>
+        <div id="auth">
+            <button id="showLogin">Login</button>
+            <button id="showSignup">Sign Up</button>
+            <button id="logout" style="display:none;">Logout</button>
+        </div>
     </header>
-    
+
     <main>
+        <section id="authForms" style="display:none;">
+            <div id="loginForm">
+                <h2>Login</h2>
+                <input type="text" id="loginUsername" placeholder="Username">
+                <input type="password" id="loginPassword" placeholder="Password">
+                <button onclick="login()">Login</button>
+            </div>
+            <div id="signupForm" style="display:none;">
+                <h2>Sign Up</h2>
+                <input type="text" id="signupUsername" placeholder="Username">
+                <input type="password" id="signupPassword" placeholder="Password">
+                <button onclick="signup()">Sign Up</button>
+            </div>
+        </section>
+
         <section id="intro">
             <h2>Welcome to Participatory Democracy</h2>
-            <p>Express your views on any issue. Your Personal AI Advocate will refine them, and we'll synthesize collective input into actionable options. Join or create a Center of Focus to drive change.</p>
+            <p>Express your views. Your AI Advocate refines them, and we synthesize inputs into actionable options.</p>
         </section>
-        
-        <section id="input">
-            <h2>Your Input</h2>
-            <p>Share your thoughts on a local or global issue.</p>
-            <textarea id="userInput" rows="4" placeholder="E.g., 'Our city needs better public transport funding...'"></textarea>
+
+        <section id="input" style="display:none;">
+            <h2>Your Contribution</h2>
+            <textarea id="userInput" rows="4" placeholder="E.g., 'Our city needs better public transport...'"></textarea>
             <br><br>
-            <button onclick="processInput()">Refine with AI Advocate</button>
+            <button onclick="submitContribution()">Submit</button>
             <button onclick="startVoiceInput()">Voice Input (Mock)</button>
             <div id="aiOutput"></div>
         </section>
-        
+
         <section id="synthesis">
             <h2>Collective Synthesis</h2>
-            <p>Here's how your input fits into the bigger picture (demo mode).</p>
             <div id="synthesisOutput"></div>
         </section>
-        
+
         <section id="centers">
             <h2>Centers of Focus</h2>
-            <p>Active discussions on key issues. Join one or propose a new Center.</p>
-            <div class="issues-list">
-                <div class="center-card">
-                    <h3>City Budget Reallocation</h3>
-                    <p>Convergences: More funding for education. Disagreements: Tax increases vs. cuts.</p>
-                    <button>Join</button>
-                </div>
-                <div class="center-card">
-                    <h3>School Bullying Policy</h3>
-                    <p>Options: AI-monitored reporting, community workshops. Evidence: 70% user support for workshops.</p>
-                    <button>Join</button>
-                </div>
+            <div class="issues-list" id="centersList"></div>
+            <button onclick="showProposeCenter()" id="proposeCenterBtn" style="display:none;">Propose New Center</button>
+            <div id="proposeCenterForm" style="display:none;">
+                <h3>Propose a Center</h3>
+                <input type="text" id="centerTitle" placeholder="Center Title">
+                <textarea id="centerDescription" placeholder="Description"></textarea>
+                <button onclick="proposeCenter()">Submit Proposal</button>
             </div>
-            <button onclick="proposeCenter()">Propose New Center</button>
         </section>
     </main>
 
-    <script>
-        function processInput() {
-            const input = document.getElementById('userInput').value;
-            if (!input) {
-                alert('Please enter your thoughts first.');
-                return;
-            }
-            // Mock AI refinement (in real app, call to backend AI API)
-            const refined = `Refined Advocacy: "${input}" – Key points: Prioritize evidence-based solutions. Suggested action: Propose budget shift to public transport. Your voice amplified!`;
-            document.getElementById('aiOutput').innerHTML = `<strong>Your AI Advocate says:</strong> ${refined}`;
-            
-            // Mock synthesis
-            const synthesis = `Synthesis Update: Your input aligns with 45% of users on transport issues. Emerging option: 20% budget reallocation. Disagreements: Funding sources.`;
-            document.getElementById('synthesisOutput').innerHTML = `<strong>Collective View:</strong> ${synthesis}`;
-        }
-        
-        function startVoiceInput() {
-            if ('webkitSpeechRecognition' in window) {
-                const recognition = new webkitSpeechRecognition();
-                recognition.onresult = function(event) {
-                    document.getElementById('userInput').value = event.results[0][0].transcript;
-                };
-                recognition.start();
-            } else {
-                alert('Voice input not supported in this browser. Use text instead.');
-            }
-        }
-        
-        function proposeCenter() {
-            const topic = prompt('What issue do you want to focus on?');
-            if (topic) {
-                const newCard = `<div class="center-card"><h3>${topic}</h3><p>Newly proposed – 0 participants yet.</p><button>Join</button></div>`;
-                document.querySelector('.issues-list').innerHTML += newCard;
-            }
-        }
-    </script>
+    <script src="scripts.js"></script>
 </body>
 </html>
