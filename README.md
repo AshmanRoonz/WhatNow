@@ -1,7 +1,3 @@
-Awesome—here’s a tightened, developer-friendly, community-ready README you can drop in as `README.md`. I kept your voice and philosophy, merged “Part 2.0” into a single coherent doc, clarified “government = organizing field,” and added practical setup, API, security, and contribution details.
-
----
-
 # 🌍 WhatNow — Every Voice, Every Day
 
 **Truth-Driven Agreement-Ethic (TDAE) & Participatory Democracy (PD)**
