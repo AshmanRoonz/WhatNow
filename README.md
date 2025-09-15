@@ -1,6 +1,7 @@
 # 🌍 WhatNow — Every Voice, Every Day
 
 **Truth-Driven Agreement-Ethic (TDAE) & Participatory Democracy (PD)**
+Full TDAE philosophy here: https://www.ashmanroonz.ca/2025/09/the-truth-driven-agreement-ethic-tdae.html
 
 > A living, people-centered democracy amplified by AI.
 > **Truth is the foundation. Agreement shapes morality. Ethics evolve with knowledge.**
